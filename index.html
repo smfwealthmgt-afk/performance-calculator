@@ -507,7 +507,41 @@ let bal2=parseFloat(document.getElementById("bal2").value)||0;
 let bal3=parseFloat(document.getElementById("bal3").value)||0;
 
 let bal4=parseFloat(document.getElementById("bal4").value)||0;
+///////////////////////////////////////////////////////////
+// ROLLING AVERAGE BALANCE GROWTH
+///////////////////////////////////////////////////////////
 
+
+// Weighted Achievement
+let weightedAchievement =
+(bal4 * 0.50) +
+(bal3 * 0.30) +
+(bal2 * 0.20);
+
+
+// Weighted Base
+let weightedBase =
+(bal3 * 0.50) +
+(bal2 * 0.30) +
+(bal1 * 0.20);
+
+
+// Growth Amount
+let growthAmount =
+weightedAchievement - weightedBase;
+
+
+// Performance %
+let growthPerformance =
+(growthAmount / target.growthTarget) * 100;
+
+
+// Marks with Multiplier
+let growthMarks =
+Math.min(
+(growthPerformance / 100) * target.growthWeight * target.growthMultiplier,
+target.growthWeight * target.growthMultiplier
+);
 
 // NTB Performance
 
@@ -569,6 +603,19 @@ document.getElementById("result").innerHTML=`
 <p>Month-End CASA Portfolio Performance : ${casaPerformance.toFixed(2)}%</p>
 
 <p><b>Month-End CASA Portfolio Marks : ${casaMarks.toFixed(2)} / ${target.casaWeight}</b></p>
+<br><br>
+
+<p>Weighted Achievement : ${weightedAchievement.toLocaleString()}</p>
+
+<p>Weighted Base : ${weightedBase.toLocaleString()}</p>
+
+<p>Growth Amount : ${growthAmount.toLocaleString()}</p>
+
+<p>Average Balance Growth Target : ${target.growthTarget.toLocaleString()}</p>
+
+<p>Average Balance Growth Performance : ${growthPerformance.toFixed(2)}%</p>
+
+<p><b>Average Balance Growth Marks : ${growthMarks.toFixed(2)} / ${target.growthWeight * target.growthMultiplier}</b></p>
 `;
 
 }
