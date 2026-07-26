@@ -247,7 +247,11 @@ grid-template-columns:1fr;
 Calculate Performance
 
 </button>
+<button onclick="downloadPDF()">
 
+Download Report
+
+</button>
 <div id="result">
 
 <h2>Performance Result</h2>
@@ -720,8 +724,35 @@ document.getElementById("result").innerHTML=`
 `;
 
 }
+function downloadPDF(){
 
+const { jsPDF } = window.jspdf;
+
+let doc = new jsPDF();
+
+
+let report =
+document.getElementById("result").innerText;
+
+
+doc.text(
+"SMF Performance Assessment Report",
+20,
+20
+);
+
+
+doc.text(
+report,
+20,
+40
+);
+
+
+doc.save("SMF_Performance_Report.pdf");
+
+}
 </script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </body>
 </html>
