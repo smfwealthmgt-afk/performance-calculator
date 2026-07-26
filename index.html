@@ -560,6 +560,24 @@ target.fdMultiplier,
 target.fdWeight * target.fdMultiplier
 
 );
+///////////////////////////////////////////////////////////
+// DPS VOLUME CALCULATION
+///////////////////////////////////////////////////////////
+
+let dpsPerformance =
+(dps / target.dpsTarget) * 100;
+
+
+let dpsMarks =
+Math.min(
+
+(dpsPerformance / 100) *
+target.dpsWeight *
+target.dpsMultiplier,
+
+target.dpsWeight * target.dpsMultiplier
+
+);
 // NTB Performance
 
 let ntbPerformance=(ntb/target.ntbTarget)*100;
@@ -642,6 +660,15 @@ document.getElementById("result").innerHTML=`
 <p>FD Volume Performance : ${fdPerformance.toFixed(2)}%</p>
 
 <p><b>FD Volume Marks : ${fdMarks.toFixed(2)} / ${target.fdWeight * target.fdMultiplier}</b></p>
+<br><br>
+
+<p>DPS Volume Target : ${target.dpsTarget.toLocaleString()}</p>
+
+<p>DPS Volume Achievement : ${dps.toLocaleString()}</p>
+
+<p>DPS Volume Performance : ${dpsPerformance.toFixed(2)}%</p>
+
+<p><b>DPS Volume Marks : ${dpsMarks.toFixed(2)} / ${target.dpsWeight * target.dpsMultiplier}</b></p>
 `;
 
 }
