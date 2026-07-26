@@ -105,42 +105,6 @@ button{
 
 }
 
-.download-icon{
-
-position:fixed;
-
-right:20px;
-
-bottom:20px;
-
-background:none;
-
-border:none;
-
-font-size:30px;
-
-color:#555;
-
-cursor:pointer;
-
-display:none;
-
-padding:0;
-
-box-shadow:none;
-
-width:auto;
-
-height:auto;
-
-}
-
-.download-icon:hover{
-
-color:#C00000;
-
-}
-
 button:hover{
 
     background:#004080;
@@ -757,61 +721,8 @@ document.getElementById("result").innerHTML=`
 `;
 
 }
-function downloadPDF(){
-
-const { jsPDF } = window.jspdf;
-
-let result = document.getElementById("result");
-
-
-html2canvas(result,{
-scale:2
-}).then(canvas=>{
-
-
-let imgData = canvas.toDataURL("image/png");
-
-
-let pdf = new jsPDF(
-"p",
-"mm",
-"a4"
-);
-
-
-let width = pdf.internal.pageSize.getWidth();
-
-let height = 
-(canvas.height * width) / canvas.width;
-
-
-pdf.addImage(
-imgData,
-"PNG",
-10,
-10,
-width-20,
-height
-);
-
-
-pdf.save(
-"SMF_Performance_Report.pdf"
-);
-
-
-});
-
-
-}
 
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-
-<button id="downloadBtn" onclick="downloadPDF()" class="download-icon">
-⬇️
-</button>
 
 </body>
 </html>
