@@ -728,102 +728,52 @@ function downloadPDF(){
 
 const { jsPDF } = window.jspdf;
 
-let doc = new jsPDF();
-
-let grade = document.getElementById("grade").value;
-
 let result = document.getElementById("result");
 
-let y = 20;
+
+html2canvas(result,{
+scale:2
+}).then(canvas=>{
 
 
-// Header
-
-doc.setFontSize(18);
-doc.setFont(undefined, "bold");
-doc.text("SMF Performance Assessment Report",20,y);
-
-y += 15;
+let imgData = canvas.toDataURL("image/png");
 
 
-// Employee Information
-
-doc.setFontSize(12);
-doc.setFont(undefined, "normal");
-
-doc.text("Job Grade : " + grade,20,y);
-
-y += 12;
+let pdf = new jsPDF(
+"p",
+"mm",
+"a4"
+);
 
 
-// Extract KPI text
+let width = pdf.internal.pageSize.getWidth();
 
-let lines = result.innerText.split("\n");
-
-
-lines.forEach(function(line){
-
-if(line.trim()==""){
-    
-    y += 5;
-    return;
-
-}
+let height = 
+(canvas.height * width) / canvas.width;
 
 
-if(
-line.includes("Marks") ||
-line.includes("Job Grade")
-){
-
-doc.setFont(undefined,"bold");
-
-}
-else{
-
-doc.setFont(undefined,"normal");
-
-}
+pdf.addImage(
+imgData,
+"PNG",
+10,
+10,
+width-20,
+height
+);
 
 
-doc.text(line,20,y);
-
-
-y += 8;
-
-
-// New page if required
-
-if(y > 280){
-
-doc.addPage();
-
-y=20;
-
-}
-
-});
-
-
-doc.save(
+pdf.save(
 "SMF_Performance_Report.pdf"
 );
 
 
+});
+
+
 }
 
-
-doc.text(
-report,
-20,
-40
-);
-
-
-doc.save("SMF_Performance_Report.pdf");
-
-}
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </body>
 </html>
