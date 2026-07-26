@@ -718,12 +718,6 @@ document.getElementById("result").innerHTML=`
 
 <p><b>DPS Volume Marks : ${dpsMarks.toFixed(2)} / ${target.dpsWeight * target.dpsMultiplier}</b></p>
 
-<br><br>
-
-<button onclick="downloadPDF()">
-Download Report
-</button>
-
 `;
 
 }
@@ -778,5 +772,16 @@ pdf.save(
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</script>
+
+
+<button id="downloadBtn" onclick="downloadPDF()" class="download-icon">
+⬇️
+</button>
+
+
+</body>
+
+</html>
 </body>
 </html>
