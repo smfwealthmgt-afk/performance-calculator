@@ -516,7 +516,20 @@ target.ntbWeight,
 (ntbPerformance/100)*target.ntbWeight
 
 );
+///////////////////////////////////////////////////////////
+// CASA PERFORMANCE
+///////////////////////////////////////////////////////////
 
+let casaPerformance = (casa / target.casaTarget) * 100;
+
+
+let casaMarks = Math.min(
+
+target.casaWeight,
+
+(casaPerformance / 100) * target.casaWeight
+
+);
 
 // Show Result
 
@@ -537,7 +550,13 @@ document.getElementById("result").innerHTML=`
 <p><b>NTB Performance :</b> ${ntbPerformance.toFixed(2)}%</p>
 
 <p><b>NTB Marks :</b> ${ntbMarks.toFixed(2)} / ${target.ntbWeight}</p>
+<p><b>CASA Target :</b> ${target.casaTarget.toLocaleString()}</p>
 
+<p><b>CASA Achievement :</b> ${casa.toLocaleString()}</p>
+
+<p><b>CASA Performance :</b> ${casaPerformance.toFixed(2)}%</p>
+
+<p><b>CASA Marks :</b> ${casaMarks.toFixed(2)} / ${target.casaWeight}</p>
 `;
 
 }
