@@ -543,21 +543,25 @@ document.getElementById("result").innerHTML=`
 
 <p><b>Job Grade :</b> ${grade}</p>
 
-<p><b>NTB Target :</b> ${target.ntbTarget}</p>
+<br>
 
-<p><b>NTB Achievement :</b> ${ntb}</p>
+<p>NTB Target : ${target.ntbTarget}</p>
 
-<p><b>NTB Performance :</b> ${ntbPerformance.toFixed(2)}%</p>
+<p>NTB Achievement : ${ntb}</p>
 
-<p><b>NTB Marks :</b> ${ntbMarks.toFixed(2)} / ${target.ntbWeight}</p>
+<p>NTB Performance : ${ntbPerformance.toFixed(2)}%</p>
 
-<p><b>Month-End CASA Portfolio Target :</b> ${target.casaTarget.toLocaleString()}</p>
+<p><b>NTB Marks : ${ntbMarks.toFixed(2)} / ${target.ntbWeight}</b></p>
 
-<p><b>Month-End CASA Portfolio Achievement :</b> ${casa.toLocaleString()}</p>
+<br><br>
 
-<p><b>Month-End CASA Portfolio Performance :</b> ${casaPerformance.toFixed(2)}%</p>
+<p>Month-End CASA Portfolio Target : ${target.casaTarget.toLocaleString()}</p>
 
-<p><b>Month-End CASA Portfolio Marks :</b> ${casaMarks.toFixed(2)} / ${target.casaWeight}</p>
+<p>Month-End CASA Portfolio Achievement : ${casa.toLocaleString()}</p>
+
+<p>Month-End CASA Portfolio Performance : ${casaPerformance.toFixed(2)}%</p>
+
+<p><b>Month-End CASA Portfolio Marks : ${casaMarks.toFixed(2)} / ${target.casaWeight}</b></p>
 `;
 
 }
