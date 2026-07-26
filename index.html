@@ -730,16 +730,87 @@ const { jsPDF } = window.jspdf;
 
 let doc = new jsPDF();
 
+let grade = document.getElementById("grade").value;
 
-let report =
-document.getElementById("result").innerText;
+let result = document.getElementById("result");
+
+let y = 20;
 
 
-doc.text(
-"SMF Performance Assessment Report",
-20,
-20
+// Header
+
+doc.setFontSize(18);
+doc.setFont(undefined, "bold");
+doc.text("SMF Performance Assessment Report",20,y);
+
+y += 15;
+
+
+// Employee Information
+
+doc.setFontSize(12);
+doc.setFont(undefined, "normal");
+
+doc.text("Job Grade : " + grade,20,y);
+
+y += 12;
+
+
+// Extract KPI text
+
+let lines = result.innerText.split("\n");
+
+
+lines.forEach(function(line){
+
+if(line.trim()==""){
+    
+    y += 5;
+    return;
+
+}
+
+
+if(
+line.includes("Marks") ||
+line.includes("Job Grade")
+){
+
+doc.setFont(undefined,"bold");
+
+}
+else{
+
+doc.setFont(undefined,"normal");
+
+}
+
+
+doc.text(line,20,y);
+
+
+y += 8;
+
+
+// New page if required
+
+if(y > 280){
+
+doc.addPage();
+
+y=20;
+
+}
+
+});
+
+
+doc.save(
+"SMF_Performance_Report.pdf"
 );
+
+
+}
 
 
 doc.text(
