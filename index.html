@@ -578,52 +578,7 @@ target.dpsMultiplier,
 target.dpsWeight * target.dpsMultiplier
 
 );
-///////////////////////////////////////////////////////////
-// FINAL PERFORMANCE CALCULATION
-///////////////////////////////////////////////////////////
 
-let totalMarks =
-ntbMarks +
-casaMarks +
-growthMarks +
-fdMarks +
-dpsMarks;
-
-
-let maximumMarks =
-target.ntbWeight +
-target.casaWeight +
-(target.growthWeight * target.growthMultiplier) +
-(target.fdWeight * target.fdMultiplier) +
-(target.dpsWeight * target.dpsMultiplier);
-
-
-let finalPerformance =
-(totalMarks / maximumMarks) * 100;
-
-///////////////////////////////////////////////////////////
-// PERFORMANCE COLOR STATUS
-///////////////////////////////////////////////////////////
-
-let status="";
-
-if(finalPerformance < 60){
-
-status="🔴 Red";
-
-}
-
-else if(finalPerformance < 75){
-
-status="🟡 Yellow";
-
-}
-
-else{
-
-status="🟢 Green";
-
-}
 // NTB Performance
 
 let ntbPerformance=(ntb/target.ntbTarget)*100;
@@ -652,7 +607,53 @@ target.casaWeight,
 (casaPerformance / 100) * target.casaWeight
 
 );
+///////////////////////////////////////////////////////////
+// FINAL PERFORMANCE CALCULATION
+///////////////////////////////////////////////////////////
 
+let totalMarks =
+ntbMarks +
+casaMarks +
+growthMarks +
+fdMarks +
+dpsMarks;
+
+
+let maximumMarks =
+target.ntbWeight +
+target.casaWeight +
+(target.growthWeight * target.growthMultiplier) +
+(target.fdWeight * target.fdMultiplier) +
+(target.dpsWeight * target.dpsMultiplier);
+
+
+let finalPerformance =
+(totalMarks / maximumMarks) * 100;
+
+
+///////////////////////////////////////////////////////////
+// PERFORMANCE COLOR STATUS
+///////////////////////////////////////////////////////////
+
+let status="";
+
+if(finalPerformance < 60){
+
+status="🔴 Red";
+
+}
+
+else if(finalPerformance < 75){
+
+status="🟡 Yellow";
+
+}
+
+else{
+
+status="🟢 Green";
+
+}
 // Show Result
 
 document.getElementById("result").style.display="block";
