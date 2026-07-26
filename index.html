@@ -578,6 +578,52 @@ target.dpsMultiplier,
 target.dpsWeight * target.dpsMultiplier
 
 );
+///////////////////////////////////////////////////////////
+// FINAL PERFORMANCE CALCULATION
+///////////////////////////////////////////////////////////
+
+let totalMarks =
+ntbMarks +
+casaMarks +
+growthMarks +
+fdMarks +
+dpsMarks;
+
+
+let maximumMarks =
+target.ntbWeight +
+target.casaWeight +
+(target.growthWeight * target.growthMultiplier) +
+(target.fdWeight * target.fdMultiplier) +
+(target.dpsWeight * target.dpsMultiplier);
+
+
+let finalPerformance =
+(totalMarks / maximumMarks) * 100;
+
+///////////////////////////////////////////////////////////
+// PERFORMANCE COLOR STATUS
+///////////////////////////////////////////////////////////
+
+let status="";
+
+if(finalPerformance < 60){
+
+status="🔴 Red";
+
+}
+
+else if(finalPerformance < 75){
+
+status="🟡 Yellow";
+
+}
+
+else{
+
+status="🟢 Green";
+
+}
 // NTB Performance
 
 let ntbPerformance=(ntb/target.ntbTarget)*100;
@@ -616,7 +662,15 @@ document.getElementById("result").innerHTML=`
 <h2>Performance Result</h2>
 
 <hr>
+<h2>Overall Performance</h2>
 
+<h1>${finalPerformance.toFixed(2)}%</h1>
+
+<h3>${status}</h3>
+
+<br>
+<hr>
+<br>
 <p><b>Job Grade :</b> ${grade}</p>
 
 <br>
