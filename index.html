@@ -247,11 +247,7 @@ grid-template-columns:1fr;
 Calculate Performance
 
 </button>
-<button onclick="downloadPDF()">
 
-Download Report
-
-</button>
 <div id="result">
 
 <h2>Performance Result</h2>
@@ -721,6 +717,13 @@ document.getElementById("result").innerHTML=`
 <p>DPS Volume Performance : ${dpsPerformance.toFixed(2)}%</p>
 
 <p><b>DPS Volume Marks : ${dpsMarks.toFixed(2)} / ${target.dpsWeight * target.dpsMultiplier}</b></p>
+
+<br><br>
+
+<button onclick="downloadPDF()">
+Download Report
+</button>
+
 `;
 
 }
