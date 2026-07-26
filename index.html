@@ -542,7 +542,24 @@ Math.min(
 (growthPerformance / 100) * target.growthWeight * target.growthMultiplier,
 target.growthWeight * target.growthMultiplier
 );
+///////////////////////////////////////////////////////////
+// FD VOLUME CALCULATION
+///////////////////////////////////////////////////////////
 
+let fdPerformance =
+(fd / target.fdTarget) * 100;
+
+
+let fdMarks =
+Math.min(
+
+(fdPerformance / 100) *
+target.fdWeight *
+target.fdMultiplier,
+
+target.fdWeight * target.fdMultiplier
+
+);
 // NTB Performance
 
 let ntbPerformance=(ntb/target.ntbTarget)*100;
@@ -616,6 +633,15 @@ document.getElementById("result").innerHTML=`
 <p>Average Balance Growth Performance : ${growthPerformance.toFixed(2)}%</p>
 
 <p><b>Average Balance Growth Marks : ${growthMarks.toFixed(2)} / ${target.growthWeight * target.growthMultiplier}</b></p>
+<br><br>
+
+<p>FD Volume Target : ${target.fdTarget.toLocaleString()}</p>
+
+<p>FD Volume Achievement : ${fd.toLocaleString()}</p>
+
+<p>FD Volume Performance : ${fdPerformance.toFixed(2)}%</p>
+
+<p><b>FD Volume Marks : ${fdMarks.toFixed(2)} / ${target.fdWeight * target.fdMultiplier}</b></p>
 `;
 
 }
