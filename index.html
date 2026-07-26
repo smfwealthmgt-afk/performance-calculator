@@ -268,7 +268,7 @@ Version 1.0
 
 <script>
 
-const months=[///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
 // SMF INCENTIVE POLICY
 ///////////////////////////////////////////////////////////
 
@@ -435,10 +435,26 @@ EO:{
 }
 
 };
-"January","February","March","April","May","June",
-"July","August","September","October","November","December"
-];
 
+
+///////////////////////////////////////////////////////////
+// MONTH LIST
+///////////////////////////////////////////////////////////
+
+const months=[
+"January",
+"February",
+"March",
+"April",
+"May",
+"June",
+"July",
+"August",
+"September",
+"October",
+"November",
+"December"
+];
 const today=new Date();
 
 document.getElementById("m1").innerHTML=months[(today.getMonth()+9)%12];
