@@ -446,9 +446,83 @@ document.getElementById("m2").innerHTML=months[(today.getMonth()+10)%12];
 document.getElementById("m3").innerHTML=months[(today.getMonth()+11)%12];
 document.getElementById("m4").innerHTML=months[today.getMonth()];
 
+///////////////////////////////////////////////////////////
+// CALCULATE PERFORMANCE
+///////////////////////////////////////////////////////////
+
 function calculate(){
 
+// Read Job Grade
+let grade=document.getElementById("grade").value;
+
+if(grade=="Select Job Grade"){
+
+alert("Please select Job Grade");
+
+return;
+
+}
+
+// Read Targets
+
+let target=POLICY[grade];
+
+// Read User Inputs
+
+let ntb=parseFloat(document.getElementById("ntb").value)||0;
+
+let casa=parseFloat(document.getElementById("casa").value)||0;
+
+let fd=parseFloat(document.getElementById("fd").value)||0;
+
+let dps=parseFloat(document.getElementById("dps").value)||0;
+
+let bal1=parseFloat(document.getElementById("bal1").value)||0;
+
+let bal2=parseFloat(document.getElementById("bal2").value)||0;
+
+let bal3=parseFloat(document.getElementById("bal3").value)||0;
+
+let bal4=parseFloat(document.getElementById("bal4").value)||0;
+
+
+// NTB Performance
+
+let ntbPerformance=(ntb/target.ntbTarget)*100;
+
+
+// NTB Marks
+
+let ntbMarks=Math.min(
+
+target.ntbWeight,
+
+(ntbPerformance/100)*target.ntbWeight
+
+);
+
+
+// Show Result
+
 document.getElementById("result").style.display="block";
+
+document.getElementById("result").innerHTML=`
+
+<h2>Performance Result</h2>
+
+<hr>
+
+<p><b>Job Grade :</b> ${grade}</p>
+
+<p><b>NTB Target :</b> ${target.ntbTarget}</p>
+
+<p><b>NTB Achievement :</b> ${ntb}</p>
+
+<p><b>NTB Performance :</b> ${ntbPerformance.toFixed(2)}%</p>
+
+<p><b>NTB Marks :</b> ${ntbMarks.toFixed(2)} / ${target.ntbWeight}</p>
+
+`;
 
 }
 
