@@ -694,7 +694,7 @@ document.getElementById("result").innerHTML=`
 
 <p>Average Balance Growth Performance : ${growthPerformance.toFixed(2)}%</p>
 
-<p><b>Average Balance Growth Marks : ${growthMarks.toFixed(2)} / ${target.growthWeight * target.growthMultiplier}</b></p>
+<p><b>Average Balance Growth Marks : ${growthMarks.toFixed(2)} / ${target.growthWeight}</b></p>
 <br><br>
 
 <p>FD Volume Target : ${target.fdTarget.toLocaleString()}</p>
@@ -703,7 +703,7 @@ document.getElementById("result").innerHTML=`
 
 <p>FD Volume Performance : ${fdPerformance.toFixed(2)}%</p>
 
-<p><b>FD Volume Marks : ${fdMarks.toFixed(2)} / ${target.fdWeight * target.fdMultiplier}</b></p>
+<p><b>FD Volume Marks : ${fdMarks.toFixed(2)} / ${target.fdWeight}</b></p>
 <br><br>
 
 <p>DPS Volume Target : ${target.dpsTarget.toLocaleString()}</p>
@@ -712,7 +712,7 @@ document.getElementById("result").innerHTML=`
 
 <p>DPS Volume Performance : ${dpsPerformance.toFixed(2)}%</p>
 
-<p><b>DPS Volume Marks : ${dpsMarks.toFixed(2)} / ${target.dpsWeight * target.dpsMultiplier}</b></p>
+<p><b>DPS Volume Marks : ${dpsMarks.toFixed(2)} / ${target.dpsWeight}</b></p>
 
 `;
 
