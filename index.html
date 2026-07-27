@@ -535,6 +535,12 @@ weightedAchievement - weightedBase;
 let growthPerformance =
 (growthAmount / target.growthTarget) * 100;
 
+if(growthPerformance < 0){
+
+growthPerformance = 0;
+
+}
+
 
 // Marks with Multiplier
 let growthMarks =
