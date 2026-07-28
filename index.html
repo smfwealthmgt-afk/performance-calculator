@@ -572,13 +572,27 @@ let dpsPerformance =
 (dps / target.dpsTarget) * 100;
 
 
-let dpsMarks =
-Math.min(
+// Maximum DPS marks depends on Growth Marks
+let maxDpsMarks;
 
-(dpsPerformance / 100) *
-target.dpsWeight,
+if (growthMarks <= 0) {
 
-target.dpsWeight * target.dpsMultiplier
+    // If Growth Marks are zero or negative,
+    // DPS can earn up to 20 marks
+    maxDpsMarks = 20;
+
+} else {
+
+    // Otherwise follow existing policy (15)
+    maxDpsMarks = target.dpsWeight * target.dpsMultiplier;
+
+}
+
+let dpsMarks = Math.min(
+
+    (dpsPerformance / 100) * target.dpsWeight,
+
+    maxDpsMarks
 
 );
 
@@ -735,7 +749,7 @@ document.getElementById("result").innerHTML=`
 
 <p>DPS Volume Performance : ${displayDpsPerformance.toFixed(2)}%</p>
 
-<p><b>DPS Volume Marks : ${dpsMarks.toFixed(2)} / ${target.dpsWeight}</b></p>
+<p><b>DPS Volume Marks : ${dpsMarks.toFixed(2)} / ${maxDpsMarks}</b></p>
 
 `;
 
