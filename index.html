@@ -650,15 +650,31 @@ status="🟢 Green";
 
 }
 // Show Result
-let displayNtbPerformance = Math.min(ntbMarks, target.ntbWeight);
+// Display percentage capped at policy maximum marks
+let displayNtbPerformance = Math.min(
+    (ntbMarks / target.ntbWeight) * 5,
+    target.ntbWeight
+);
 
-let displayCasaPerformance = Math.min(casaMarks, target.casaWeight);
+let displayCasaPerformance = Math.min(
+    (casaMarks / target.casaWeight) * 5,
+    target.casaWeight
+);
 
-let displayGrowthPerformance = Math.min(growthMarks, target.growthWeight);
+let displayGrowthPerformance = Math.min(
+    (growthMarks / (target.growthWeight * target.growthMultiplier)) * 50,
+    target.growthWeight
+);
 
-let displayFdPerformance = Math.min(fdMarks, target.fdWeight);
+let displayFdPerformance = Math.min(
+    (fdMarks / (target.fdWeight * target.fdMultiplier)) * 30,
+    target.fdWeight
+);
 
-let displayDpsPerformance = Math.min(dpsMarks, target.dpsWeight);
+let displayDpsPerformance = Math.min(
+    (dpsMarks / (target.dpsWeight * target.dpsMultiplier)) * 10,
+    target.dpsWeight
+);
 document.getElementById("result").style.display="block";
 
 document.getElementById("result").innerHTML=`
