@@ -650,15 +650,15 @@ status="🟢 Green";
 
 }
 // Show Result
-let displayNtbPerformance = Math.min(ntbPerformance,100);
+let displayNtbPerformance = Math.min(ntbMarks, target.ntbWeight);
 
-let displayCasaPerformance = Math.min(casaPerformance,100);
+let displayCasaPerformance = Math.min(casaMarks, target.casaWeight);
 
-let displayGrowthPerformance = Math.min(growthPerformance,100);
+let displayGrowthPerformance = Math.min(growthMarks, target.growthWeight);
 
-let displayFdPerformance = Math.min(fdPerformance,100);
+let displayFdPerformance = Math.min(fdMarks, target.fdWeight);
 
-let displayDpsPerformance = Math.min(dpsPerformance,100);
+let displayDpsPerformance = Math.min(dpsMarks, target.dpsWeight);
 document.getElementById("result").style.display="block";
 
 document.getElementById("result").innerHTML=`
