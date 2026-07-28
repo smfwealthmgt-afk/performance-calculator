@@ -458,16 +458,16 @@ const months=[
 const today=new Date();
 
 document.getElementById("m1").innerHTML =
-months[(today.getMonth()+9)%12] + " (n-3)";
+months[(today.getMonth()+9)%12];
 
 document.getElementById("m2").innerHTML =
-months[(today.getMonth()+10)%12] + " (n-2)";
+months[(today.getMonth()+10)%12];
 
 document.getElementById("m3").innerHTML =
-months[(today.getMonth()+11)%12] + " (n-1)";
+months[(today.getMonth()+11)%12];
 
 document.getElementById("m4").innerHTML =
-months[today.getMonth()] + " (n)";
+months[today.getMonth()];
 
 ///////////////////////////////////////////////////////////
 // CALCULATE PERFORMANCE
