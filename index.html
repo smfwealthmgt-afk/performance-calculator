@@ -154,7 +154,30 @@ grid-template-columns:1fr;
 </head>
 
 <body>
+<div id="loginBox" class="container">
 
+    <div class="header">
+        <h1>SMF WM Performance Assessment Tool</h1>
+        <p>Employee Verification</p>
+    </div>
+
+    <div class="section">
+
+        <label>Employee ID</label>
+
+        <input
+            type="text"
+            id="employeeId"
+            placeholder="Enter Employee ID">
+
+        <button onclick="verifyEmployee()">
+            Access Calculator
+        </button>
+
+    </div>
+
+</div>
+<div id="calculator" style="display:none;">
 <div class="container">
 
 <div class="header">
@@ -273,6 +296,7 @@ Calculate Performance
 
 </div>
 
+</div>
 <script>
 
 ///////////////////////////////////////////////////////////
@@ -784,6 +808,42 @@ function updateDateTime(){
 updateDateTime();
 
 setInterval(updateDateTime,1000);
+
+async function verifyEmployee(){
+
+    const employeeId =
+    document.getElementById("employeeId").value.trim();
+
+    const url =
+    "https://opensheet.elk.sh/1MtH2UhHMyQ25FzuDoVlL-sClfmZpej1eSMVGkDS60cY/EmployeeList";
+
+    const response =
+    await fetch(url);
+
+    const employees =
+    await response.json();
+
+    const employee =
+    employees.find(e =>
+
+        e["Employee ID"] === employeeId &&
+        e["Active"] === "Yes"
+
+    );
+
+    if(employee){
+
+        document.getElementById("loginBox").style.display="none";
+
+        document.getElementById("calculator").style.display="block";
+
+    }else{
+
+        alert("Employee ID not found or inactive.");
+
+    }
+
+}
 </script>
 
 </body>
