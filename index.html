@@ -163,16 +163,14 @@ grid-template-columns:1fr;
 
     <div class="section">
 
-        <label>Employee ID</label>
+<label>Access Code</label>
+<input type="password" id="accessCode" placeholder="Enter access code">
 
-        <input
-            type="text"
-            id="employeeId"
-            placeholder="Enter Employee ID">
+<button onclick="verifyAccess()">
+    Access Calculator
+</button>
 
-        <button onclick="verifyEmployee()">
-            Access Calculator
-        </button>
+<p id="loginError" style="color:#C00000; text-align:center; margin-top:10px;"></p>
 
     </div>
 
@@ -809,37 +807,23 @@ updateDateTime();
 
 setInterval(updateDateTime,1000);
 
-async function verifyEmployee(){
+function verifyAccess(){
 
-    const employeeId =
-    document.getElementById("employeeId").value.trim();
+    const enteredCode =
+        document.getElementById("accessCode").value.trim();
 
-    const url =
-    "https://opensheet.elk.sh/1MtH2UhHMyQ25FzuDoVlL-sClfmZpej1eSMVGkDS60cY/EmployeeList";
+    const correctCode = "SMF_WM";
 
-    const response =
-    await fetch(url);
+    if(enteredCode === correctCode){
 
-    const employees =
-    await response.json();
+        document.getElementById("loginBox").style.display = "none";
 
-    const employee =
-    employees.find(e =>
-
-        e["Employee ID"] === employeeId &&
-        e["Active"] === "Yes"
-
-    );
-
-    if(employee){
-
-        document.getElementById("loginBox").style.display="none";
-
-        document.getElementById("calculator").style.display="block";
+        document.getElementById("calculator").style.display = "block";
 
     }else{
 
-        alert("Employee ID not found or inactive.");
+        document.getElementById("loginError").innerHTML =
+            "Invalid access code. Please try again.";
 
     }
 
