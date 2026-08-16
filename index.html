@@ -209,7 +209,7 @@ grid-template-columns:1fr;
 
 <label>Report Date</label>
 
-<input type="date" id="reportDate">
+<input type="date" id="reportDate" required>
 
 <div class="section">
 
@@ -468,7 +468,15 @@ months[today.getMonth()];
 ///////////////////////////////////////////////////////////
 
 function calculate(){
+let reportDateValue = document.getElementById("reportDate").value;
 
+if(!reportDateValue){
+
+    alert("Please select Report Date");
+
+    return;
+
+}
 // Read Job Grade
 let grade=document.getElementById("grade").value;
 
@@ -496,6 +504,34 @@ let dps=parseFloat(document.getElementById("dps").value)||0;
 
 let growthAmount =
 parseFloat(document.getElementById("growthAmount").value)||0;
+
+///////////////////////////////////////////////////////////
+// BREAK-EVEN DEPOSIT CALCULATION
+///////////////////////////////////////////////////////////
+
+let selectedReportDate = new Date(reportDateValue + "T00:00:00");
+
+let year = selectedReportDate.getFullYear();
+let month = selectedReportDate.getMonth();
+
+let daysInMonth = new Date(year, month + 1, 0).getDate();
+
+let reportDay = selectedReportDate.getDate();
+
+let remainingDays = daysInMonth - reportDay;
+
+let breakEvenDeposit = 0;
+
+if(remainingDays > 0){
+
+    breakEvenDeposit =
+        Math.abs(growthAmount) *
+        daysInMonth /
+        remainingDays *
+        2;
+
+}
+    
 ///////////////////////////////////////////////////////////
 // ROLLING AVERAGE BALANCE GROWTH
 ///////////////////////////////////////////////////////////
@@ -701,6 +737,7 @@ document.getElementById("result").innerHTML=`
 <p>Average Balance Growth Performance : ${displayGrowthPerformance.toFixed(2)}%</p>
 
 <p><b>Average Balance Growth Marks : ${growthMarks.toFixed(2)} / ${target.growthWeight}</b></p>
+<p><b>Break-Even Deposit Amount : ${breakEvenDeposit.toLocaleString(undefined, {maximumFractionDigits: 0})}</b></p>
 <br><br>
 
 <p>FD Volume Target : ${target.fdTarget.toLocaleString()}</p>
