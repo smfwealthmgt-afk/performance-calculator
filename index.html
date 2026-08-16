@@ -522,7 +522,7 @@ let remainingDays = daysInMonth - reportDay;
 
 let breakEvenDeposit = 0;
 
-if(remainingDays > 0){
+if(growthAmount < 0 && remainingDays > 0){
 
     breakEvenDeposit =
         Math.abs(growthAmount) *
