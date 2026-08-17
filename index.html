@@ -749,6 +749,11 @@ document.getElementById("result").innerHTML=`
 
 <p><b>Average Balance Growth Marks : ${growthMarks.toFixed(2)} / ${target.growthWeight}</b></p>
 <p><b>Break-Even Deposit Amount : ${breakEvenDeposit.toLocaleString(undefined, {maximumFractionDigits: 0})}</b></p>
+
+<p style="font-size:12px; font-style:italic; color:#666; margin-top:6px;">
+[Note: Depositing the above-mentioned amount into <b>Rolling Accounts</b> will result in break-even CASA growth.
+Similarly, depositing <b>50%</b> of the above-mentioned amount into <b>M2M Accounts</b> will achieve the same break-even position.]
+</p>
 <br><br>
 
 <p>FD Volume Target : ${target.fdTarget.toLocaleString()}</p>
