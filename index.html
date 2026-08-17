@@ -220,23 +220,23 @@ grid-template-columns:1fr;
 
 <h2>Achievement Input</h2>
 
-<label>New Account Opening</label>
+<label>NTB CASA Account Opening</label>
 
 <input type="number" id="ntb">
 
-<label>NTB Month-End CASA Portfolio</label>
+<label>NTB CASA Month-End Portfolio</label>
 
 <input type="number" id="casa">
 
-<label>Average Balance Growth</label>
+<label>CASA Average Balance Growth</label>
 
 <input type="number" id="growthAmount" oninput="calculateDepositGrowth()">
 
-<label>FD Volume</label>
+<label>NTB FD Volume</label>
 
 <input type="number" id="fd">
 
-<label>DPS Volume</label>
+<label>NTB DPS Volume</label>
 
 <input type="number" id="dps">
 
@@ -259,12 +259,12 @@ Calculate Performance
 
 <div class="section">
 
-    <h2>Deposit Growth Estimator</h2>
+    <h2>CASA Average Growth Estimator</h2>
 
     <div class="month-grid">
 
         <div>
-            <label>Deposit Amount (M2M accounts)</label>
+            <label>New Deposit Amount (M2M Accounts)</label>
             <input 
                 type="number" 
                 id="m2mDeposit" 
@@ -274,7 +274,7 @@ Calculate Performance
         </div>
 
         <div>
-            <label>Deposit Amount (Rolling accounts)</label>
+            <label>New Deposit Amount (Rolling Accounts)</label>
             <input 
                 type="number" 
                 id="rollingDeposit" 
@@ -285,7 +285,7 @@ Calculate Performance
 
     </div>
 
-    <label>Estimated Growth Amount</label>
+    <label>Projected CASA Average Balance Growth</label>
 
     <input 
         type="number" 
@@ -722,32 +722,32 @@ document.getElementById("result").innerHTML=`
 
 <br>
 
-<p>New Account Opening Target : ${target.ntbTarget}</p>
+<p>NTB CASA Account Opening Target : ${target.ntbTarget}</p>
 
-<p>New Account Opening Achievement : ${ntb}</p>
+<p>NTB CASA Account Opening Achievement : ${ntb}</p>
 
-<p>New Account Opening Performance : ${displayNtbPerformance.toFixed(2)}%</p>
+<p>NTB CASA Account Opening Performance : ${displayNtbPerformance.toFixed(2)}%</p>
 
-<p><b>New Account Opening Marks : ${ntbMarks.toFixed(2)} / ${target.ntbWeight}</b></p>
+<p><b>NTB CASA Account Opening Marks : ${ntbMarks.toFixed(2)} / ${target.ntbWeight}</b></p>
 
 <br><br>
 
-<p>NTB Month-End CASA Portfolio Target : ${target.casaTarget.toLocaleString()}</p>
+<p>NTB CASA Month-End CASA Portfolio Target : ${target.casaTarget.toLocaleString()}</p>
 
-<p>NTB Month-End CASA Portfolio Achievement : ${casa.toLocaleString()}</p>
+<p>NTB CASA Month-End Portfolio Achievement : ${casa.toLocaleString()}</p>
 
-<p>NTB Month-End CASA Portfolio Performance : ${displayCasaPerformance.toFixed(2)}%</p>
+<p>NTB CASA Month-End Portfolio Performance : ${displayCasaPerformance.toFixed(2)}%</p>
 
-<p><b>NTB Month-End CASA Portfolio Marks : ${casaMarks.toFixed(2)} / ${target.casaWeight}</b></p>
+<p><b>NTB CASA Month-End Portfolio Marks : ${casaMarks.toFixed(2)} / ${target.casaWeight}</b></p>
 <br><br>
 
-<p>Average Balance Growth : ${growthAmount.toLocaleString()}</p>
+<p>CASA Average Balance Growth : ${growthAmount.toLocaleString()}</p>
 
-<p>Average Balance Growth Target : ${target.growthTarget.toLocaleString()}</p>
+<p>CASA Average Balance Growth Target : ${target.growthTarget.toLocaleString()}</p>
 
-<p>Average Balance Growth Performance : ${displayGrowthPerformance.toFixed(2)}%</p>
+<p>CASA Average Balance Growth Performance : ${displayGrowthPerformance.toFixed(2)}%</p>
 
-<p><b>Average Balance Growth Marks : ${growthMarks.toFixed(2)} / ${target.growthWeight}</b></p>
+<p><b>CASA Average Balance Growth Marks : ${growthMarks.toFixed(2)} / ${target.growthWeight}</b></p>
 <p><b>Break-Even Deposit Amount : ${breakEvenDeposit.toLocaleString(undefined, {maximumFractionDigits: 0})}</b></p>
 
 <p style="font-size:12px; font-style:italic; color:#666; margin-top:6px;">
@@ -756,22 +756,22 @@ Similarly, depositing <b>50%</b> of the above-mentioned amount into <b>M2M Accou
 </p>
 <br><br>
 
-<p>FD Volume Target : ${target.fdTarget.toLocaleString()}</p>
+<p>NTB FD Volume Target : ${target.fdTarget.toLocaleString()}</p>
 
-<p>FD Volume Achievement : ${fd.toLocaleString()}</p>
+<p>NTB FD Volume Achievement : ${fd.toLocaleString()}</p>
 
-<p>FD Volume Performance : ${displayFdPerformance.toFixed(2)}%</p>
+<p>NTB FD Volume Performance : ${displayFdPerformance.toFixed(2)}%</p>
 
-<p><b>FD Volume Marks : ${fdMarks.toFixed(2)} / ${target.fdWeight}</b></p>
+<p><b>NTB FD Volume Marks : ${fdMarks.toFixed(2)} / ${target.fdWeight}</b></p>
 <br><br>
 
-<p>DPS Volume Target : ${target.dpsTarget.toLocaleString()}</p>
+<p>NTB DPS Volume Target : ${target.dpsTarget.toLocaleString()}</p>
 
-<p>DPS Volume Achievement : ${dps.toLocaleString()}</p>
+<p>NTB DPS Volume Achievement : ${dps.toLocaleString()}</p>
 
-<p>DPS Volume Performance : ${displayDpsPerformance.toFixed(2)}%</p>
+<p>NTB DPS Volume Performance : ${displayDpsPerformance.toFixed(2)}%</p>
 
-<p><b>DPS Volume Marks : ${dpsMarks.toFixed(2)} / ${maxDpsMarks}</b></p>
+<p><b>NTB DPS Volume Marks : ${dpsMarks.toFixed(2)} / ${maxDpsMarks}</b></p>
 
 `;
 
