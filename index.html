@@ -254,8 +254,6 @@ Calculate Performance
 
 <div class="section">
 
-<div class="section">
-
 <h2>Deposit Growth Estimator</h2>
 
 <div class="month-grid">
@@ -451,39 +449,6 @@ EO:{
 }
 
 };
-
-
-///////////////////////////////////////////////////////////
-// MONTH LIST
-///////////////////////////////////////////////////////////
-
-const months=[
-"January",
-"February",
-"March",
-"April",
-"May",
-"June",
-"July",
-"August",
-"September",
-"October",
-"November",
-"December"
-];
-const today=new Date();
-
-document.getElementById("m1").innerHTML =
-months[(today.getMonth()+9)%12];
-
-document.getElementById("m2").innerHTML =
-months[(today.getMonth()+10)%12];
-
-document.getElementById("m3").innerHTML =
-months[(today.getMonth()+11)%12];
-
-document.getElementById("m4").innerHTML =
-months[today.getMonth()];
 
 ///////////////////////////////////////////////////////////
 // CALCULATE PERFORMANCE
