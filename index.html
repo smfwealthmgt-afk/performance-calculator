@@ -209,7 +209,7 @@ grid-template-columns:1fr;
 
 <label>Report Date</label>
 
-<input type="date" id="reportDate" required>
+<input type="date" id="reportDate" required onchange="calculateDepositGrowth()">
 
 <div class="section">
 
@@ -225,7 +225,7 @@ grid-template-columns:1fr;
 
 <label>Average Balance Growth</label>
 
-<input type="number" id="growthAmount">
+<input type="number" id="growthAmount" oninput="calculateDepositGrowth()">
 
 <label>FD Volume</label>
 
@@ -252,23 +252,82 @@ Calculate Performance
 
 </div>
 
-<div class="section">
+///////////////////////////////////////////////////////////
+// DEPOSIT TO GROWTH CALCULATION
+///////////////////////////////////////////////////////////
 
-<h2>Deposit Growth Estimator</h2>
+function calculateDepositGrowth(){
 
-<div class="month-grid">
+    let m2mAmount =
+        parseFloat(document.getElementById("m2mDeposit").value) || 0;
 
-    <div>
-        <label>Deposit Amount</label>
-        <input type="number" id="depositAmount" oninput="calculateDepositGrowth()">
-    </div>
+    let rollingAmount =
+        parseFloat(document.getElementById("rollingDeposit").value) || 0;
 
-    <div>
-        <label>Estimated Growth Amount</label>
-        <input type="number" id="estimatedGrowth" readonly>
-    </div>
+    let reportDateValue =
+        document.getElementById("reportDate").value;
 
-</div>
+    let casaGrowth =
+        parseFloat(document.getElementById("growthAmount").value) || 0;
+
+    let estimatedGrowth = 0;
+
+    if(reportDateValue){
+
+        let selectedReportDate =
+            new Date(reportDateValue + "T00:00:00");
+
+        let year =
+            selectedReportDate.getFullYear();
+
+        let month =
+            selectedReportDate.getMonth();
+
+        // Total days in selected month
+        let daysInMonth =
+            new Date(year, month + 1, 0).getDate();
+
+        // Selected report day
+        let reportDay =
+            selectedReportDate.getDate();
+
+        // Remaining days after report date
+        let remainingDays =
+            daysInMonth - reportDay;
+
+        if(remainingDays > 0){
+
+            estimatedGrowth =
+
+                ((m2mAmount * remainingDays) / daysInMonth)
+
+                +
+
+                ((rollingAmount * remainingDays) /
+                daysInMonth / 2)
+
+                +
+
+                casaGrowth;
+
+        }else{
+
+            estimatedGrowth = casaGrowth;
+
+        }
+
+    }else{
+
+        // If Report Date is not selected
+        // only show current CASA Growth
+        estimatedGrowth = casaGrowth;
+
+    }
+
+    document.getElementById("estimatedGrowth").value =
+        estimatedGrowth.toFixed(0);
+
+}
 
 </div>
 
