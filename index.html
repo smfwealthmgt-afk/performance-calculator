@@ -710,9 +710,17 @@ let displayFdPerformance = Math.min(
     target.fdWeight * target.fdMultiplier
 );
 
+let dpsPerformanceCap;
+
+if (growthAmount <= 0) {
+    dpsPerformanceCap = 20;
+} else {
+    dpsPerformanceCap = target.dpsWeight * target.dpsMultiplier;
+}
+
 let displayDpsPerformance = Math.min(
     (dps / target.dpsTarget) * 100,
-    target.dpsWeight * target.dpsMultiplier
+    dpsPerformanceCap
 );
 document.getElementById("result").style.display="block";
 
