@@ -692,12 +692,12 @@ status="🟢 Green";
 
 let displayNtbPerformance = Math.min(
     (ntb / target.ntbTarget) * 100,
-    100
+    target.ntbWeight * target.ntbMultiplier
 );
 
 let displayCasaPerformance = Math.min(
     (casa / target.casaTarget) * 100,
-    100
+    target.casaWeight * target.casaMultiplier
 );
 
 let displayGrowthPerformance = Math.min(
