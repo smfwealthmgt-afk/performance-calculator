@@ -685,29 +685,34 @@ status="🟢 Green";
 }
 // Show Result
 // Display percentage capped at policy maximum marks
+///////////////////////////////////////////////////////////
+// DISPLAY PERFORMANCE %
+// Actual achievement percentage with policy cap
+///////////////////////////////////////////////////////////
+
 let displayNtbPerformance = Math.min(
-    (ntbMarks / target.ntbWeight) * 5,
-    target.ntbWeight
+    (ntb / target.ntbTarget) * 100,
+    100
 );
 
 let displayCasaPerformance = Math.min(
-    (casaMarks / target.casaWeight) * 5,
-    target.casaWeight
+    (casa / target.casaTarget) * 100,
+    100
 );
 
 let displayGrowthPerformance = Math.min(
-    (growthMarks / (target.growthWeight * target.growthMultiplier)) * 50,
-    target.growthWeight
+    (growthAmount / target.growthTarget) * 100,
+    target.growthMultiplier * 100
 );
 
 let displayFdPerformance = Math.min(
-    (fdMarks / (target.fdWeight * target.fdMultiplier)) * 30,
-    target.fdWeight
+    (fd / target.fdTarget) * 100,
+    target.fdMultiplier * 100
 );
 
 let displayDpsPerformance = Math.min(
-    (dpsMarks / (target.dpsWeight * target.dpsMultiplier)) * 10,
-    target.dpsWeight
+    (dps / target.dpsTarget) * 100,
+    target.dpsMultiplier * 100
 );
 document.getElementById("result").style.display="block";
 
