@@ -702,17 +702,17 @@ let displayCasaPerformance = Math.min(
 
 let displayGrowthPerformance = Math.min(
     (growthAmount / target.growthTarget) * 100,
-    target.growthMultiplier * 100
+    target.growthWeight * target.growthMultiplier
 );
 
 let displayFdPerformance = Math.min(
     (fd / target.fdTarget) * 100,
-    target.fdMultiplier * 100
+    target.fdWeight * target.fdMultiplier
 );
 
 let displayDpsPerformance = Math.min(
     (dps / target.dpsTarget) * 100,
-    target.dpsMultiplier * 100
+    target.dpsWeight * target.dpsMultiplier
 );
 document.getElementById("result").style.display="block";
 
