@@ -530,7 +530,7 @@ let daysInMonth = new Date(year, month + 1, 0).getDate();
 
 let reportDay = selectedReportDate.getDate();
 
-let remainingDays = daysInMonth - reportDay + 1;
+let remainingDays = daysInMonth - reportDay;
 
 let breakEvenDeposit = 0;
 
@@ -874,9 +874,9 @@ function calculateDepositGrowth(){
         let reportDay =
             selectedReportDate.getDate();
 
-        // Include the deposit/report date itself
+        // Remaining days after report date
         let remainingDays =
-            daysInMonth - reportDay + 1;
+            daysInMonth - reportDay;
 
         if(remainingDays > 0){
 
